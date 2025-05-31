@@ -45,12 +45,12 @@ export const basicInfoSchema = yup.object().shape({
     )
     .trim(),
   dateOfBirth: yup
-    .date()
+    .string()
     .transform(parseDateString)
     // .max(new Date(), 'Date of birth cannot be in the future')
     .required('Date of birth is required'),
   gender: yup.string().required('Gender is required'),
-  profilePicture: yup.string().nullable(),
+  profilePicture: yup.string(),
 });
 
 // Address Info validation schema
@@ -76,7 +76,7 @@ export const securityInfoSchema = yup.object().shape({
     .required('Security answer is required')
     .notOneOf([yup.ref('securityAnswer1')], 'Security answers must be different')
     .trim(),
-  twoFactorEnabled: yup.boolean(),
+  twoFactorEnabled: yup.boolean().required('Two-factor authentication option is required'),
   backupEmail: yup.string().email('Please enter a valid email address').trim(),
   backupPhone: yup
     .string()
@@ -177,7 +177,7 @@ export const loginSchema = yup.object().shape({
     .email('Please enter a valid email address')
     .trim(),
   password: yup.string().required('Password is required'),
-  rememberMe: yup.boolean(),
+  rememberMe: yup.boolean()
 });
 
 // Forgot Password validation schema

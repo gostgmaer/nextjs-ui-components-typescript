@@ -8,12 +8,14 @@ import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { verifyEmailStart, verifyEmailSuccess, verifyEmailFailure } from '@/store/slices/authSlice';
-
+import { useSearchParams } from "next/navigation";
 interface EmailVerificationProps {
   token?: string;
 }
 
-export function EmailVerification({ token }: EmailVerificationProps) {
+export function EmailVerification() {
+    const searchParams = useSearchParams();
+  const token = searchParams.get("token") || undefined;
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');

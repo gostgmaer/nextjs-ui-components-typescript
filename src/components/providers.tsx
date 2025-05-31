@@ -15,7 +15,7 @@ export function Providers({ children }: ProvidersProps) {
     <ReduxProvider store={store}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         {children}
-        <Toaster position="bottom-right" />
+        <Toaster />
       </ThemeProvider>
     </ReduxProvider>
   );

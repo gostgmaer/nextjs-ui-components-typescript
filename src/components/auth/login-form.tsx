@@ -18,7 +18,7 @@ import { AlertCircle, Loader2 } from 'lucide-react';
 interface LoginFormValues {
   email: string;
   password: string;
-  rememberMe: boolean;
+  rememberMe?: boolean;
 }
 
 export function LoginForm() {
