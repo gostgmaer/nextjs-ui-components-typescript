@@ -77,7 +77,7 @@ export function Header() {
           ) : (
             <>
               <Link
-                href="/login"
+                href="/auth/login"
                 className={cn(
                   'text-sm font-medium transition-colors hover:text-primary',
                   pathname === '/login' ? 'text-primary' : 'text-muted-foreground'
@@ -86,7 +86,7 @@ export function Header() {
                 Login
               </Link>
               <Link
-                href="/register"
+                href="/auth/register"
                 className={cn(
                   'text-sm font-medium transition-colors hover:text-primary',
                   pathname === '/register' ? 'text-primary' : 'text-muted-foreground'
@@ -152,7 +152,7 @@ export function Header() {
             ) : (
               <>
                 <Link
-                  href="/login"
+                  href="/auth/login"
                   className={cn(
                     'flex items-center gap-2 py-2 text-sm font-medium transition-colors hover:text-primary',
                     pathname === '/login' ? 'text-primary' : 'text-muted-foreground'
@@ -162,7 +162,7 @@ export function Header() {
                   <span>Login</span>
                 </Link>
                 <Link
-                  href="/register"
+                  href="/auth/register"
                   className={cn(
                     'flex items-center gap-2 py-2 text-sm font-medium transition-colors hover:text-primary',
                     pathname === '/register' ? 'text-primary' : 'text-muted-foreground'
@@ -172,7 +172,7 @@ export function Header() {
                   <span>Register</span>
                 </Link>
                 <Link
-                  href="/forgot-password"
+                  href="/auth/forgot-password"
                   className={cn(
                     'flex items-center gap-2 py-2 text-sm font-medium transition-colors hover:text-primary',
                     pathname === '/forgot-password' ? 'text-primary' : 'text-muted-foreground'

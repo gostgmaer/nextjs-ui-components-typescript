@@ -16,10 +16,10 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Button size="lg" asChild>
-              <Link href="/register">Get Started</Link>
+              <Link href="/auth/register">Get Started</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/login">Sign In</Link>
+              <Link href="/auth/login">Sign In</Link>
             </Button>
           </div>
         </div>
@@ -144,10 +144,10 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <Button size="lg" asChild>
-                <Link href="/register">Register Now</Link>
+                <Link href="/auth/register">Register Now</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/login">Sign In</Link>
+                <Link href="/auth/login">Sign In</Link>
               </Button>
             </div>
           </div>

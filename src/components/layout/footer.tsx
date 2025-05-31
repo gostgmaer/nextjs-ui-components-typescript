@@ -27,7 +27,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/login"
+                  href="/auth/login"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Login
@@ -35,7 +35,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/register"
+                  href="/auth/register"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Register
