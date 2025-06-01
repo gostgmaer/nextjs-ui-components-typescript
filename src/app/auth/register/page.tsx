@@ -2,9 +2,9 @@
 
 import { useAppSelector } from '@/hooks/useAppSelector';
 import { FormProgress } from '@/components/ui/form-progress';
-import { BasicInfoForm } from '@/components/registration/basic-info-form';
-import { AddressInfoForm } from '@/components/registration/address-info-form';
-import { SecurityInfoForm } from '@/components/registration/security-info-form';
+import { BasicInfoForm } from '@/components/pages/registration/basic-info-form';
+import { AddressInfoForm } from '@/components/pages/registration/address-info-form';
+import { SecurityInfoForm } from '@/components/pages/registration/security-info-form';
 import { Metadata } from 'next';
 
 // export const metadata: Metadata = {

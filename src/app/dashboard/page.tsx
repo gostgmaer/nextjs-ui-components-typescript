@@ -1,9 +1,15 @@
+import Dashboard from '@/components/layout/dashboard'
 import React from 'react'
 
-const Dashboard = () => {
+const Page = () => {
   return (
-    <div>page</div>
+
+      <div className="flex-1 flex items-center justify-center">
+        <h1 className="text-2xl font-bold">Welcome to the Dashboard</h1>
+      </div>
+     
+    
   )
 }
 
-export default Dashboard
+export default Page
