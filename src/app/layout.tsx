@@ -5,7 +5,7 @@ import { Providers } from "@/components/providers";
 import { SessionProviderWrapper } from "@/components/Sessionproviders";
 import { MainLayout } from "@/components/layout/main-layout";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+import { authOptions } from "./api/auth/authOptions";
 import Dashboard from "@/components/layout/dashboard";
 
 // const inter = Inter({ subsets: ['latin'] });

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../[...nextauth]/route"; // adjust path if needed
+import { authOptions } from "../authOptions"; // adjust path if needed
 import { cookies } from "next/headers";
 import { jwtDecode } from "jwt-decode";
 // import { storeCookiesOfObject } from "@/helper/function";
