@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
-import { secret } from './setting';
+import { secret } from './config/setting';
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
@@ -16,7 +16,8 @@ export async function middleware(req: NextRequest) {
   ) {
     return NextResponse.next();
   }
-
+ const t = await getToken({ req, secret });
+  // console.log("t",t);
   const isProtectedRoute = pathname.startsWith('/dashboard');
   const isAuthRoute = pathname.startsWith('/auth') || pathname === '/';
 

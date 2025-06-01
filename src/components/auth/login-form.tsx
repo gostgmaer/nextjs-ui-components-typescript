@@ -47,39 +47,39 @@ export function LoginForm() {
     setError(null);
     // dispatch(loginStart());
 
-    // const res = await signIn("credentials", {
-    //   redirect: false,
-    //   email: data.email,
-    //   password: data.password,
-    // });
+    const res = await signIn("credentials", {
+      redirect: false,
+      email: data.email,
+      password: data.password,
+    });
 
-    console.log(data);
+    console.log(res);
 
-    // if (res && res.ok) {
+    if (res && res.ok) {
 
-    //   console.log(res);
+      // console.log(res);
 
-    //   if (res.url) {
-    //     const parsedUrl = new URL(res.url);
-    //     const callbackUrlParam = parsedUrl.searchParams.get("callbackUrl");
-    //     if (callbackUrlParam) {
-    //       const decodedCallbackUrl = callbackUrlParam
-    //         ? decodeURIComponent(callbackUrlParam)
-    //         : "/";
+      if (res.url) {
+        const parsedUrl = new URL(res.url);
+        const callbackUrlParam = parsedUrl.searchParams.get("callbackUrl");
+        console.log(callbackUrlParam);
+        
+        if (callbackUrlParam) {
+          const decodedCallbackUrl = callbackUrlParam
+            ? decodeURIComponent(callbackUrlParam)
+            : "/";
 
-    //       router.push(decodedCallbackUrl);
-    //     } else {
-    //       router.push("/");
-    //     }
+          router.push(decodedCallbackUrl);
+        } else{
+          router.push("/");
+        }
 
-    //   } else {
-    //     router.push("/");
-    //   }
-    // } else {
-    //   console.log(res);
-    //   setError("An error occurred during sign in.");
-    //   dispatch(loginFailure("An error occurred during sign in."));
-    // }
+      } 
+    } else {
+      console.log(res);
+      setError("An error occurred during sign in.");
+      dispatch(loginFailure("An error occurred during sign in."));
+    }
   };
 
   return (

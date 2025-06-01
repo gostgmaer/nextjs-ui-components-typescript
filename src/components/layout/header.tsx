@@ -11,9 +11,13 @@ import { useAppSelector } from '@/hooks/useAppSelector';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { logout } from '@/store/slices/authSlice';
 import { Button } from '@/components/ui/button';
+import { useSession } from 'next-auth/react';
+import { UserStatus } from '../elements/userpopover';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { data: session, status } = useSession();
+  
   const pathname = usePathname();
   const { isAuthenticated, user } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
@@ -31,6 +35,8 @@ export function Header() {
     dispatch(logout());
     closeMenu();
   };
+
+  
 
   return (
     <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b">
@@ -54,7 +60,7 @@ export function Header() {
             Home
           </Link>
 
-          {isAuthenticated ? (
+          {status=="authenticated" ? (
             <>
               <Link
                 href="/profile"
@@ -100,6 +106,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <ThemeSwitch />
+          <UserStatus />
           
           {/* Mobile Menu Button */}
           <Button
