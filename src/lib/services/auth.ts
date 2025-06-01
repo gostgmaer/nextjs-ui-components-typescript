@@ -10,8 +10,8 @@ const authService = {
     userLogout: async (headers: any) => {
         return await requests.post("/user/auth/logout", {}, headers);
     },
-    getUserProfile: async () => {
-        return await requests.get("/user/auth/profile", {}, {}, 3600); // Cache for 1 hour
+    getUserProfile: async (headers: any) => {
+        return await requests.get("/user/auth/profile",{}, {}, headers, 3600); // Cache for 1 hour
     },
     updateUserProfile: async (body: any, params: any, headers: any) => {
         return await requests.patch("/user/auth/profile/update", body, params, headers);

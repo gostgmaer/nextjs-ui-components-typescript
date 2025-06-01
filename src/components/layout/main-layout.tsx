@@ -14,7 +14,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   const { data: session, status } = useSession();
 
   useEffect(() => {
-    if (status === "authenticated") {
+    if (session) {
       const setSessionCookies = async () => {
         try {
           await fetch("/api/auth/set-cookies");
@@ -25,12 +25,12 @@ export function MainLayout({ children }: MainLayoutProps) {
 
       setSessionCookies();
     }
-  }, [status]);
+  }, [session]);
 
   return (
     <div className="flex flex-col min-h-screen">
       <>
-        {status != "authenticated" ? (
+        {!session ? (
           <>
             <Header />
             <main className="flex-grow container mx-auto px-4">{children}</main>

@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../authOptions"; // adjust path if needed
 import { cookies } from "next/headers";
 import { jwtDecode } from "jwt-decode";
+import authService from "@/lib/services/auth";
 // import { storeCookiesOfObject } from "@/helper/function";
 
 
@@ -19,13 +20,15 @@ export async function GET() {
 
     var id = jwtDecode(session.id_token || "") as any;
 
+    const headers = { "Authorization": `Bearer ${session.accessToken}` }
 
 
-    // console.log(id);
+    const currentUser = await authService.getUserProfile(headers);
 
-    const idkeys = Object.keys(id);
+    const { _id, ...cleanUser } = currentUser.result;
+    const idkeys = Object.keys(cleanUser);
     idkeys.forEach(key => {
-        (cookieStore).set(`${key}`, id[key] || "", {
+        (cookieStore).set(`${key}`, cleanUser[key] || "", {
             httpOnly: true,
             secure: true,
             sameSite: "lax",
